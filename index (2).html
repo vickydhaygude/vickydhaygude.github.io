@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Vicky Dhaygude — AI Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Instrument Sans',sans-serif;background:#FAFAFA;color:#111;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+:root{
+  --t:#0A6E6E;--td:#084f4f;--tl:#E3F4F4;--tm:#B2DCDC;
+  --ink:#111;--ink2:#3A4A4A;--ink3:#7A9090;
+  --bg:#FAFAFA;--bg2:#F0F5F5;--card:#FFFFFF;--border:#DDE8E8;
+  --mono:'JetBrains Mono',monospace;
+  --r:10px;--r2:16px;--max:1080px;
+  --sh:0 1px 2px rgba(0,0,0,.05),0 4px 20px rgba(10,110,110,.07);
+  --sh2:0 8px 40px rgba(10,110,110,.13);
+}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+.mono{font-family:var(--mono)}
+.tag{display:inline-block;font-family:var(--mono);font-size:.68rem;font-weight:500;background:var(--tl);color:var(--t);border:1px solid var(--tm);border-radius:5px;padding:3px 9px;white-space:nowrap}
+.label{font-family:var(--mono);font-size:.7rem;font-weight:500;color:var(--t);letter-spacing:.12em;text-transform:uppercase}
+section{padding:88px 0}
+.sh{margin-bottom:52px}
+.sh .label{margin-bottom:10px}
+.sh h2{font-size:clamp(1.7rem,3.5vw,2.3rem);font-weight:700;letter-spacing:-.03em;line-height:1.15}
+.sh p{margin-top:10px;color:var(--ink2);font-size:.97rem;max-width:460px}
+
+.rv{opacity:0;transform:translateY(22px);transition:opacity .5s ease,transform .5s ease}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:58px;display:flex;align-items:center;background:rgba(250,250,250,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.nw{max-width:var(--max);margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;width:100%}
+.nl{font-weight:700;font-size:.95rem;letter-spacing:-.02em;display:flex;align-items:center;gap:6px}
+.nd{width:7px;height:7px;border-radius:50%;background:var(--t);animation:blink 2.4s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.nv{display:flex;gap:28px;list-style:none;align-items:center}
+.nv a{font-size:.845rem;font-weight:500;color:var(--ink2);transition:color .18s}
+.nv a:hover{color:var(--t)}
+.nh{background:var(--t);color:#fff;padding:7px 18px;border-radius:7px;font-size:.835rem;font-weight:600;transition:background .18s,transform .15s}
+.nh:hover{background:var(--td);transform:translateY(-1px)}
+.nb{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.nb span{width:20px;height:1.5px;background:var(--ink);border-radius:2px}
+
+/* HERO */
+#hero{padding:144px 0 96px;background:#fff;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+.hbg{position:absolute;inset:0;background-image:radial-gradient(var(--border) 1.2px,transparent 1.2px);background-size:28px 28px;opacity:.5}
+.hgl{position:absolute;right:-140px;top:-100px;width:680px;height:680px;border-radius:50%;background:radial-gradient(circle,rgba(10,110,110,.07) 0%,transparent 65%);pointer-events:none}
+.hb{position:relative;max-width:var(--max);margin:0 auto;padding:0 28px}
+.hey{display:inline-flex;align-items:center;gap:8px;margin-bottom:26px;font-family:var(--mono);font-size:.72rem;font-weight:500;color:var(--t);letter-spacing:.1em;text-transform:uppercase;animation:up .55s ease both}
+.hey-line{width:28px;height:1.5px;background:var(--t)}
+.hh1{font-size:clamp(2.4rem,5.5vw,4rem);font-weight:700;letter-spacing:-.04em;line-height:1.07;animation:up .55s .08s ease both}
+.hh1 em{font-style:normal;color:var(--t)}
+.hs{margin-top:22px;font-size:clamp(.97rem,2vw,1.07rem);color:var(--ink2);line-height:1.72;max-width:530px;animation:up .55s .16s ease both}
+.ha{margin-top:36px;display:flex;gap:12px;flex-wrap:wrap;animation:up .55s .24s ease both}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:11px 24px;border-radius:8px;font-weight:600;font-size:.9rem;transition:all .18s}
+.bp{background:var(--t);color:#fff;box-shadow:0 3px 12px rgba(10,110,110,.28)}
+.bp:hover{background:var(--td);transform:translateY(-2px);box-shadow:0 5px 18px rgba(10,110,110,.36)}
+.bs{background:#fff;color:var(--ink);border:1.5px solid var(--border)}
+.bs:hover{border-color:var(--t);color:var(--t);transform:translateY(-2px)}
+.hk{margin-top:60px;display:flex;border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;background:#fff;width:fit-content;animation:up .55s .32s ease both}
+.kpi{padding:20px 32px;border-right:1px solid var(--border)}
+.kpi:last-child{border-right:none}
+.kv{font-size:1.7rem;font-weight:700;letter-spacing:-.04em;color:var(--ink)}
+.kv span{color:var(--t)}
+.kl{font-size:.72rem;color:var(--ink3);margin-top:2px;font-family:var(--mono)}
+@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+/* ABOUT */
+#about{background:var(--bg);border-bottom:1px solid var(--border)}
+.ag{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:start}
+.at h3{font-size:1.5rem;font-weight:700;letter-spacing:-.025em;line-height:1.25;margin-bottom:18px}
+.at p{color:var(--ink2);font-size:.97rem;line-height:1.78;margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:22px}
+.sc{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:24px;margin-bottom:14px}
+.sc:last-child{margin-bottom:0}
+.scl{font-family:var(--mono);font-size:.65rem;font-weight:500;color:var(--ink3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+.sr{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:.875rem}
+.sr:last-child{border-bottom:none;padding-bottom:0}
+.sr strong{color:var(--ink);font-weight:600;font-size:.85rem;display:block}
+.sr span{color:var(--ink3);font-size:.78rem}
+.si{width:28px;height:28px;border-radius:7px;background:var(--tl);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.85rem}
+
+/* PROJECTS */
+#projects{background:#fff;border-bottom:1px solid var(--border)}
+.pb{border:1px solid var(--border);border-radius:var(--r2);background:var(--card);margin-bottom:28px;overflow:hidden;transition:box-shadow .22s}
+.pb:last-child{margin-bottom:0}
+.pb:hover{box-shadow:var(--sh2)}
+.pt{padding:26px 30px 22px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.pn{font-family:var(--mono);font-size:.64rem;color:var(--ink3);letter-spacing:.08em;margin-bottom:7px}
+.ptit{font-size:1.18rem;font-weight:700;letter-spacing:-.025em;line-height:1.2;margin-bottom:8px}
+.ptags{display:flex;flex-wrap:wrap;gap:6px}
+.pbadge{font-family:var(--mono);font-size:.67rem;font-weight:500;padding:4px 10px;border-radius:5px;background:var(--t);color:#fff}
+.pbody{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border)}
+.pc{padding:22px 26px;border-right:1px solid var(--border)}
+.pc:last-child{border-right:none}
+.pcl{font-family:var(--mono);font-size:.62rem;font-weight:500;color:var(--ink3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:9px;display:flex;align-items:center;gap:6px}
+.pcl::before{content:'';width:3px;height:11px;border-radius:2px;background:var(--t)}
+.pc p{font-size:.875rem;color:var(--ink2);line-height:1.68}
+.ppipe{padding:22px 26px}
+.ppipe-lbl{font-family:var(--mono);font-size:.62rem;font-weight:500;color:var(--ink3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:6px}
+.ppipe-lbl::before{content:'';width:3px;height:11px;border-radius:2px;background:var(--t)}
+.pipeline{display:flex;align-items:center;flex-wrap:wrap;gap:4px}
+.pnode{background:var(--tl);border:1px solid var(--tm);border-radius:7px;padding:7px 13px;font-size:.75rem;font-weight:600;color:var(--t);white-space:nowrap;font-family:var(--mono)}
+.pnode.hi{background:var(--t);color:#fff;border-color:var(--t)}
+.parrow{color:var(--tm);padding:0 2px;font-size:.8rem}
+.pres{background:var(--tl);border-top:1px solid var(--tm);padding:13px 26px;display:flex;align-items:flex-start;gap:9px}
+.pres p{font-size:.855rem;color:var(--td);font-weight:500;line-height:1.55}
+
+/* SKILLS */
+#skills{background:var(--bg);border-bottom:1px solid var(--border)}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));gap:16px}
+.sg{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:24px;transition:box-shadow .2s}
+.sg:hover{box-shadow:var(--sh)}
+.sgh{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.sgi{width:34px;height:34px;border-radius:8px;background:var(--tl);display:flex;align-items:center;justify-content:center;font-size:1rem}
+.sgt{font-size:.9rem;font-weight:700;letter-spacing:-.01em}
+.sgl{list-style:none;display:flex;flex-direction:column;gap:7px}
+.sgl li{display:flex;align-items:center;gap:8px;font-size:.845rem;color:var(--ink2)}
+.sgl li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--t);flex-shrink:0}
+
+/* EXPERIENCE */
+#experience{background:#fff;border-bottom:1px solid var(--border)}
+.expl{display:flex;flex-direction:column;gap:16px}
+.ec{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;transition:box-shadow .2s}
+.ec:hover{box-shadow:var(--sh)}
+.ect{padding:22px 28px;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:12px;border-bottom:1px solid var(--border)}
+.ecr{font-size:1.05rem;font-weight:700;letter-spacing:-.02em}
+.ecc{font-size:.875rem;color:var(--t);font-weight:600;margin-top:3px}
+.ecd{font-family:var(--mono);font-size:.72rem;color:var(--ink3);background:var(--bg2);border:1px solid var(--border);border-radius:100px;padding:4px 12px;white-space:nowrap;align-self:flex-start}
+.ecb{padding:20px 28px}
+.eci{font-size:.9rem;color:var(--ink2);line-height:1.7;margin-bottom:16px}
+.ecbul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ecbul li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--ink2);line-height:1.6}
+.edd{width:18px;height:18px;border-radius:50%;flex-shrink:0;background:var(--tl);border:1.5px solid var(--tm);display:flex;align-items:center;justify-content:center;margin-top:1px}
+.edd svg{width:8px;height:8px}
+.ecs{padding:13px 28px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+.ecsl{font-family:var(--mono);font-size:.65rem;color:var(--ink3);letter-spacing:.07em;margin-right:4px}
+
+/* EDUCATION */
+#education{background:var(--bg);border-bottom:1px solid var(--border)}
+.edg{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.edc{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:24px;display:flex;align-items:flex-start;gap:14px;transition:box-shadow .2s}
+.edc:hover{box-shadow:var(--sh)}
+.edi{width:40px;height:40px;border-radius:10px;background:var(--tl);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.edd2{font-size:.9rem;font-weight:700;letter-spacing:-.01em;margin-bottom:3px}
+.edin{font-size:.8rem;color:var(--t);font-weight:600;margin-bottom:3px}
+.edm{font-size:.75rem;color:var(--ink3);font-family:var(--mono)}
+
+/* CONTACT */
+#contact{background:#fff}
+.cbox{max-width:600px;margin:0 auto;text-align:center}
+.cbox h2{font-size:clamp(1.7rem,3.5vw,2.3rem);font-weight:700;letter-spacing:-.035em;margin-bottom:12px}
+.cbox p{color:var(--ink2);font-size:.97rem;margin-bottom:40px}
+.clinks{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.cl{display:flex;align-items:center;gap:10px;background:var(--card);border:1.5px solid var(--border);border-radius:var(--r2);padding:16px 22px;transition:all .2s;min-width:155px;justify-content:center}
+.cl:hover{border-color:var(--t);box-shadow:0 4px 18px rgba(10,110,110,.12);transform:translateY(-2px)}
+.cli{width:36px;height:36px;border-radius:9px;background:var(--tl);display:flex;align-items:center;justify-content:center;font-size:1.05rem}
+.clt strong{font-size:.85rem;display:block;color:var(--ink)}
+.clt small{font-size:.72rem;color:var(--ink3)}
+
+footer{background:var(--bg);border-top:1px solid var(--border);padding:22px 28px;text-align:center;font-size:.76rem;color:var(--ink3);font-family:var(--mono)}
+footer a{color:var(--t)}
+
+@media(max-width:820px){
+  .ag{grid-template-columns:1fr}
+  .pbody{grid-template-columns:1fr}
+  .pc{border-right:none;border-bottom:1px solid var(--border)}
+  .pc:last-child{border-bottom:none}
+  .edg{grid-template-columns:1fr}
+  .hk{width:100%}
+  .kpi{flex:1;padding:16px 18px}
+  section{padding:64px 0}
+}
+@media(max-width:640px){
+  .nv{display:none;position:absolute;top:58px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);flex-direction:column;gap:0;padding:8px 0;z-index:300}
+  .nv.open{display:flex}
+  .nv a{padding:13px 24px;border-bottom:1px solid var(--border);display:block}
+  .nh{display:none}
+  .nb{display:flex}
+  .pt{flex-direction:column}
+  .pipeline{gap:3px}
+  .kpi{padding:14px 14px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nw">
+    <div class="nl"><div class="nd"></div>Vicky Dhaygude</div>
+    <ul class="nv" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </ul>
+    <a href="#contact" class="nh">Get in Touch</a>
+    <button class="nb" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hbg"></div>
+  <div class="hgl"></div>
+  <div class="hb">
+    <div class="hey"><span class="hey-line"></span>AI Engineer · Mumbai, India</div>
+    <h1 class="hh1">Building <em>LLM-powered</em><br>systems that work<br>in production</h1>
+    <p class="hs">I design and build AI workflows using Large Language Models, RAG pipelines, and Python — turning complex enterprise problems into reliable, usable systems.</p>
+    <div class="ha">
+      <a href="#projects" class="btn bp">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        View Projects
+      </a>
+      <a href="#contact" class="btn bs">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Contact Me
+      </a>
+    </div>
+    <div class="hk">
+      <div class="kpi"><div class="kv">1<span>+</span></div><div class="kl">Yrs · AI Eng</div></div>
+      <div class="kpi"><div class="kv">3</div><div class="kl">AI Systems Built</div></div>
+      <div class="kpi"><div class="kv">3<span>+</span></div><div class="kl">LLM Frameworks</div></div>
+      <div class="kpi"><div class="kv">MSc</div><div class="kl">Stats · NMIMS</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="ag">
+      <div class="at rv">
+        <div class="label" style="margin-bottom:10px">About</div>
+        <h3>I build AI systems,<br>not demos</h3>
+        <p>I'm an AI Engineer at Capgemini with an MSc in Applied Statistics and Analytics from NMIMS Mumbai. My work is focused on building real, production-grade AI systems — not proofs of concept.</p>
+        <p>I work across the full stack of an AI system: designing the workflow, selecting the right model approach, handling data pipelines, and delivering something that actually runs in an enterprise environment. I care about systems that are accurate, explainable, and maintainable.</p>
+        <p>I have a strong foundation in machine learning and statistics, and I'm deepening my expertise in LLM orchestration, RAG architectures, and AI system design.</p>
+        <div class="chips">
+          <span class="tag">LLMs</span><span class="tag">RAG</span><span class="tag">LangChain</span>
+          <span class="tag">LangGraph</span><span class="tag">Python</span>
+          <span class="tag">Machine Learning</span><span class="tag">Statistics</span><span class="tag">Streamlit</span>
+        </div>
+      </div>
+      <div class="rv d2">
+        <div class="sc">
+          <div class="scl">Current</div>
+          <div class="sr">
+            <div class="si">🏢</div>
+            <div><strong>Senior Analyst – AI Engineer</strong><span>Capgemini · Aug 2025 – Present</span></div>
+          </div>
+        </div>
+        <div class="sc">
+          <div class="scl">Education</div>
+          <div class="sr">
+            <div class="si">🎓</div>
+            <div><strong>MSc Applied Statistics & Analytics</strong><span>NMIMS Mumbai · 3.5/4 CGPA</span></div>
+          </div>
+          <div class="sr">
+            <div class="si">📐</div>
+            <div><strong>B.Sc Statistics</strong><span>Fergusson College, Pune · 8.87/10</span></div>
+          </div>
+        </div>
+        <div class="sc">
+          <div class="scl">Recognition</div>
+          <div class="sr">
+            <div class="si">🏆</div>
+            <div><strong>2nd Rank — NMIMS Hackathon</strong><span>Stock Price Prediction</span></div>
+          </div>
+          <div class="sr">
+            <div class="si">⭐</div>
+            <div><strong>Top 100 of 2,400 students</strong><span>Talent Batch, YCIS Satara</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <div class="sh rv">
+      <div class="label">Projects</div>
+      <h2>AI systems I've designed and built</h2>
+      <p>Each project is documented as a case study — problem, approach, pipeline, and result.</p>
+    </div>
+
+    <!-- P1 -->
+    <div class="pb rv">
+      <div class="pt">
+        <div>
+          <div class="pn">01 — Enterprise AI · Capgemini · 2025</div>
+          <div class="ptit">GxP AI Compliance System</div>
+          <div class="ptags">
+            <span class="pbadge">LLM Workflow</span>
+            <span class="pbadge">Document AI</span>
+            <span class="pbadge">Human-in-Loop</span>
+          </div>
+        </div>
+      </div>
+      <div class="pbody">
+        <div class="pc">
+          <div class="pcl">Problem</div>
+          <p>In pharma and life sciences, every document change must be classified as GxP-relevant or not. This was done manually — slow, inconsistent, and a constant compliance risk across large document sets.</p>
+        </div>
+        <div class="pc">
+          <div class="pcl">Approach</div>
+          <p>Built an end-to-end LLM workflow that reads document changes, classifies them using a language model, auto-generates audit logs and URS documents, then routes everything through a human approval step before finalising.</p>
+        </div>
+        <div class="pc">
+          <div class="pcl">Tech Stack</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:2px">
+            <span class="tag">LangChain</span><span class="tag">LLMs</span><span class="tag">Python</span>
+            <span class="tag">Document Processing</span><span class="tag">Human-in-Loop</span>
+          </div>
+        </div>
+      </div>
+      <div class="ppipe">
+        <div class="ppipe-lbl">System Pipeline</div>
+        <div class="pipeline">
+          <span class="pnode">Document Input</span><span class="parrow">→</span>
+          <span class="pnode hi">LLM Classifier</span><span class="parrow">→</span>
+          <span class="pnode">GxP / Non-GxP</span><span class="parrow">→</span>
+          <span class="pnode hi">Auto-generate Docs</span><span class="parrow">→</span>
+          <span class="pnode">Human Approval</span><span class="parrow">→</span>
+          <span class="pnode hi">Final Audit Log</span>
+        </div>
+      </div>
+      <div class="pres">
+        <span>✅</span>
+        <p>Reduced manual classification and documentation effort per compliance cycle. Full audit trail built into the workflow. Deployed in a regulated enterprise environment.</p>
+      </div>
+    </div>
+
+    <!-- P2 -->
+    <div class="pb rv d1">
+      <div class="pt">
+        <div>
+          <div class="pn">02 — Document Intelligence · Capgemini · 2025</div>
+          <div class="ptit">AI Document Structuring Tool</div>
+          <div class="ptags">
+            <span class="pbadge">Hybrid Pipeline</span>
+            <span class="pbadge">PDF / DOCX Parsing</span>
+            <span class="pbadge">LLM Restructuring</span>
+          </div>
+        </div>
+      </div>
+      <div class="pbody">
+        <div class="pc">
+          <div class="pcl">Problem</div>
+          <p>Enterprise document libraries contain thousands of PDFs and DOCX files with inconsistent layouts. This makes downstream search, indexing, or AI processing nearly impossible without significant manual cleanup.</p>
+        </div>
+        <div class="pc">
+          <div class="pcl">Approach</div>
+          <p>Designed a two-stage hybrid pipeline. Stage 1 uses rule-based preprocessing to extract document structure — headings, tables, sections. Stage 2 passes extracted content to an LLM which restructures it into a clean, consistent output format ready for downstream use.</p>
+        </div>
+        <div class="pc">
+          <div class="pcl">Tech Stack</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:2px">
+            <span class="tag">Python</span><span class="tag">LLMs</span>
+            <span class="tag">PDF Parsing</span><span class="tag">DOCX Processing</span><span class="tag">Rule-based NLP</span>
+          </div>
+        </div>
+      </div>
+      <div class="ppipe">
+        <div class="ppipe-lbl">System Pipeline</div>
+        <div class="pipeline">
+          <span class="pnode">PDF / DOCX Input</span><span class="parrow">→</span>
+          <span class="pnode hi">Rule-based Extraction</span><span class="parrow">→</span>
+          <span class="pnode">Raw Structure</span><span class="parrow">→</span>
+          <span class="pnode hi">LLM Restructure</span><span class="parrow">→</span>
+          <span class="pnode hi">Clean Output</span>
+        </div>
+      </div>
+      <div class="pres">
+        <span>✅</span>
+        <p>Eliminated hours of manual document cleanup per week. Previously unprocessable document libraries became available for AI workflows and search indexing.</p>
+      </div>
+    </div>
+
+    <!-- P3 -->
+    <div class="pb rv d2">
+      <div class="pt">
+        <div>
+          <div class="pn">03 — GenAI Application · Capgemini · 2025</div>
+          <div class="ptit">RAG Document Q&A Chatbot</div>
+          <div class="ptags">
+            <span class="pbadge">RAG</span>
+            <span class="pbadge">LangGraph</span>
+            <span class="pbadge">Streamlit</span>
+          </div>
+        </div>
+      </div>
+      <div class="pbody">
+        <div class="pc">
+          <div class="pcl">Problem</div>
+          <p>Teams working with large document sets waste significant time manually searching for answers. Keyword search misses context-dependent answers and doesn't support follow-up questions.</p>
+        </div>
+        <div class="pc">
+          <div class="pcl">Approach</div>
+          <p>Built a full RAG system. Documents are chunked, embedded, and stored for semantic search. LangGraph orchestrates the multi-step retrieval and generation workflow. The LLM generates grounded answers from retrieved content only — no hallucination from general knowledge.</p>
+        </div>
+        <div class="pc">
+          <div class="pcl">Tech Stack</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:2px">
+            <span class="tag">LangGraph</span><span class="tag">LangChain</span>
+            <span class="tag">RAG</span><span class="tag">Vector Store</span>
+            <span class="tag">Streamlit</span><span class="tag">Python</span>
+          </div>
+        </div>
+      </div>
+      <div class="ppipe">
+        <div class="ppipe-lbl">System Pipeline</div>
+        <div class="pipeline">
+          <span class="pnode">User Query</span><span class="parrow">→</span>
+          <span class="pnode hi">Embed Query</span><span class="parrow">→</span>
+          <span class="pnode">Vector Search</span><span class="parrow">→</span>
+          <span class="pnode hi">Retrieve Chunks</span><span class="parrow">→</span>
+          <span class="pnode hi">LLM Generate</span><span class="parrow">→</span>
+          <span class="pnode">Grounded Answer</span>
+        </div>
+      </div>
+      <div class="pres">
+        <span>✅</span>
+        <p>Context-aware, multi-turn Q&A on large document sets. Answers are grounded in retrieved content. Delivered via a clean Streamlit UI.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sh rv">
+      <div class="label">Skills</div>
+      <h2>Technical toolkit</h2>
+    </div>
+    <div class="sgrid">
+      <div class="sg rv">
+        <div class="sgh"><div class="sgi">🤖</div><div class="sgt">GenAI / LLM</div></div>
+        <ul class="sgl">
+          <li>Large Language Models (LLMs)</li><li>Retrieval-Augmented Generation</li>
+          <li>LangChain</li><li>LangGraph</li>
+          <li>Prompt Engineering</li><li>AI Workflow Design</li>
+        </ul>
+      </div>
+      <div class="sg rv d1">
+        <div class="sgh"><div class="sgi">📊</div><div class="sgt">Machine Learning</div></div>
+        <ul class="sgl">
+          <li>Supervised Learning</li><li>Statistical Modelling</li>
+          <li>Feature Engineering</li><li>XGBoost / Scikit-learn</li>
+          <li>NLP</li><li>Model Evaluation</li>
+        </ul>
+      </div>
+      <div class="sg rv d2">
+        <div class="sgh"><div class="sgi">🛠</div><div class="sgt">Tools & Frameworks</div></div>
+        <ul class="sgl">
+          <li>Streamlit</li><li>FastAPI (learning)</li>
+          <li>Power BI</li><li>SQL Server</li>
+          <li>GitHub</li><li>Jupyter / VS Code</li>
+        </ul>
+      </div>
+      <div class="sg rv d3">
+        <div class="sgh"><div class="sgi">💻</div><div class="sgt">Programming</div></div>
+        <ul class="sgl">
+          <li>Python</li><li>SQL</li><li>R</li>
+          <li>Pandas / NumPy</li><li>Data Wrangling</li><li>Excel</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <div class="sh rv">
+      <div class="label">Experience</div>
+      <h2>Where I've worked</h2>
+    </div>
+    <div class="expl">
+      <div class="ec rv">
+        <div class="ect">
+          <div><div class="ecr">Senior Analyst — AI Engineer</div><div class="ecc">Capgemini</div></div>
+          <div class="ecd">Aug 2025 – Present</div>
+        </div>
+        <div class="ecb">
+          <div class="eci">Building LLM-based AI systems and end-to-end AI workflows for enterprise clients in regulated industries. Work spans the full pipeline — system design to delivery.</div>
+          <ul class="ecbul">
+            <li><div class="edd"><svg viewBox="0 0 24 24" fill="none" stroke="#0A6E6E" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Built a GxP AI compliance system — LLM-based classification of document changes, automated audit log and URS document generation, and a human-in-the-loop approval layer for pharma/life sciences compliance</li>
+            <li><div class="edd"><svg viewBox="0 0 24 24" fill="none" stroke="#0A6E6E" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Designed an AI document structuring tool using a hybrid rule-based + LLM pipeline to convert unstructured PDFs and DOCX files into clean, structured formats for downstream processing</li>
+            <li><div class="edd"><svg viewBox="0 0 24 24" fill="none" stroke="#0A6E6E" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Built a RAG-based Q&A chatbot using LangGraph and Streamlit — context-aware, multi-turn document question answering for enterprise teams</li>
+          </ul>
+        </div>
+        <div class="ecs"><span class="ecsl">STACK</span><span class="tag">Python</span><span class="tag">LangChain</span><span class="tag">LangGraph</span><span class="tag">LLMs</span><span class="tag">Streamlit</span><span class="tag">SQL</span></div>
+      </div>
+      <div class="ec rv d1">
+        <div class="ect">
+          <div><div class="ecr">Data Analyst Intern</div><div class="ecc">Fedfina Financial Services Ltd.</div></div>
+          <div class="ecd">Feb 2025 – Jul 2025</div>
+        </div>
+        <div class="ecb">
+          <ul class="ecbul">
+            <li><div class="edd"><svg viewBox="0 0 24 24" fill="none" stroke="#0A6E6E" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Engineered 21+ features for a Bounce Analysis Model identifying high-risk loan patterns using DPD buckets and delinquency indicators — delivered to the Technical Lead for model deployment</li>
+            <li><div class="edd"><svg viewBox="0 0 24 24" fill="none" stroke="#0A6E6E" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Automated 65%+ of manual risk reports using SQL and Power BI dashboards, significantly reducing reporting time for the LAP and Assets department</li>
+          </ul>
+        </div>
+        <div class="ecs"><span class="ecsl">STACK</span><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Power BI</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="wrap">
+    <div class="sh rv">
+      <div class="label">Education</div>
+      <h2>Academic background</h2>
+    </div>
+    <div class="edg">
+      <div class="edc rv">
+        <div class="edi">🎓</div>
+        <div><div class="edd2">MSc Applied Statistics & Analytics</div><div class="edin">NSOMASA, NMIMS Mumbai</div><div class="edm">2023 – 2025 · 3.5 / 4.0 CGPA</div></div>
+      </div>
+      <div class="edc rv d1">
+        <div class="edi">📐</div>
+        <div><div class="edd2">B.Sc Statistics</div><div class="edin">Fergusson College, Pune University</div><div class="edm">2019 – 2022 · 8.87 / 10</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="cbox">
+      <div class="label rv" style="margin-bottom:10px">Contact</div>
+      <h2 class="rv">Let's work together</h2>
+      <p class="rv">Open to AI Engineer and GenAI roles. Reach out via email or connect on LinkedIn.</p>
+      <div class="clinks">
+        <a href="mailto:dhaygudevicky45@gmail.com" class="cl rv">
+          <div class="cli">📧</div><div class="clt"><strong>Email</strong><small>dhaygudevicky45@gmail.com</small></div>
+        </a>
+        <a href="https://linkedin.com/in/vicky-dhaygude45" target="_blank" class="cl rv d1">
+          <div class="cli">💼</div><div class="clt"><strong>LinkedIn</strong><small>vicky-dhaygude45</small></div>
+        </a>
+        <a href="https://github.com/vickydhaygude" target="_blank" class="cl rv d2">
+          <div class="cli">🐙</div><div class="clt"><strong>GitHub</strong><small>vickydhaygude</small></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>Vicky Dhaygude · AI Engineer · Mumbai · <a href="mailto:dhaygudevicky45@gmail.com">dhaygudevicky45@gmail.com</a></footer>
+
+<script>
+const burger=document.getElementById('burger'),navLinks=document.getElementById('navLinks');
+burger.addEventListener('click',()=>navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0.1});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+const secs=document.querySelectorAll('section[id]');
+window.addEventListener('scroll',()=>{let c='';secs.forEach(s=>{if(window.scrollY>=s.offsetTop-80)c=s.id});document.querySelectorAll('.nv a').forEach(a=>{a.style.color=a.getAttribute('href')==='#'+c?'var(--t)':''})},{passive:true});
+</script>
+</body>
+</html>
